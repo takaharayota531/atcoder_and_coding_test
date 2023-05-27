@@ -1,0 +1,9 @@
+version: "3.0" # とりあえず書く
+
+services:
+  api:
+    volumes:
+      - ./app:/app
+    build: . # Dockerfileがあるディレクトリを指定
+    ports:
+      - 8080:8080

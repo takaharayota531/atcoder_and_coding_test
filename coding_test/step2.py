@@ -114,7 +114,7 @@ elif step==3:
             
             print(waiting)
             co_value=waiting.pop(i)
-            print('ready '+str(waiting[i][0])+' '+str(D))
+            print('ready '+str(co_value[0])+' '+str(D))
             break
           
           
