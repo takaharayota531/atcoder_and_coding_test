@@ -20,18 +20,16 @@ def main():
     }
     response = requests.get(url, params=params)
     data = response.json()
-    next_destination = data.get("goto")
-
+    next_destination = []
+    next_destination.append(data.get("goto"))
     while True:
-        if next_destination == " put_the_bag":
-            print(next_destination + ": in the trash")
-            break
-        elif next_destination == "changed_my_mind":
-            print("Oops, the kidnapper changed their mind. Test case failed.")
-            break
+        if next_destination[-1] is not None:
+            next_destination.append(get_next_destination(next_destination[-1]))
         else:
-            print(next_destination)
-            next_destination = get_next_destination(next_destination)
+            print(next_destination[-2])
+            break
+            
 
 if __name__ == "__main__":
     main()
+
